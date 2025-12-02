@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Teclado Mecánico Redragon Kumara",
+    "price": 35000,
+    "stock": 10,
+    "category": "teclados",
+    "image": "https://imgs.search.brave.com/a26kzhbo-EjxUpr2BU__B0C23hW-cMTioW1sOHtDrTI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/dGVyYWJ5dGVzaG9w/LmNvbS5ici9wcm9k/dXRvL2cvdGVjbGFk/by1tZWNhbmljby1n/YW1lci1yZWRyYWdv/bi1rdW1hcmEtazU1/Mi1zd2l0Y2gtcmVk/LXJnYi1hYm50LTIt/cHJldG9fMTEwNDIz/LmpwZw"
+  },
+  {
+    "id": 2,
+    "name": "Mouse Logitech G203",
+    "price": 28000,
+    "stock": 5,
+    "category": "mouse",
+    "image": "https://imgs.search.brave.com/_ES3mczX7gxjSW9qzB7Dk_y7b5nwE_3MMHuNj_dIgSQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dmVuZXguY29tLmFy/L3Byb2R1Y3RzX2lt/YWdlcy8xNTk3NDQw/NDQzX2cyMDNoZXJv/LnBuZw"
+  },
+  {
+    "id": 3,
+    "name": "Auriculares HyperX Cloud Stinger",
+    "price": 52000,
+    "stock": 8,
+    "category": "auriculares",
+    "image": "https://imgs.search.brave.com/8x_aMeZxyErgbDg05KkQ0Xhy1jMgGwTvu8i5DDYkgmo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVu/ZGVyYm9sdC5jb20u/YXIvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjMvMTAvQVVIWC1D/TE9TVElDT1ItNC5q/cGc"
+  }
+]
