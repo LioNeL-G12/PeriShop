@@ -1,22 +1,30 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
       {/* Logo */}
-      <h1 className="text-2xl font-bold cursor-pointer">
+      <Link to="/" className="text-2xl font-bold">
         PeriShop
-      </h1>
+      </Link>
 
       {/* Links */}
       <ul className="flex gap-6 text-lg">
-        <li className="cursor-pointer hover:text-gray-400">Inicio</li>
-        <li className="cursor-pointer hover:text-gray-400">Periféricos</li>
-        <li className="cursor-pointer hover:text-gray-400">Ofertas</li>
-        <li className="cursor-pointer hover:text-gray-400">Contacto</li>
+        <li>
+          <Link to="/" className="hover:text-gray-400">Inicio</Link>
+        </li>
+        <li>
+          <Link to="/category/teclados" className="hover:text-gray-400">Teclados</Link>
+        </li>
+        <li>
+          <Link to="/category/mouse" className="hover:text-gray-400">Mouse</Link>
+        </li>
+        <li>
+          <Link to="/category/auriculares" className="hover:text-gray-400">Auriculares</Link>
+        </li>
       </ul>
 
-      {/* Carrito */}
       <CartWidget />
     </nav>
   );
