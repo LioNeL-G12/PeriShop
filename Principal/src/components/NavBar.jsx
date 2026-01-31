@@ -1,33 +1,23 @@
-import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom"
+import CartWidget from "./CartWidget"
 
 const NavBar = () => {
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
-      {/* Logo */}
-      <Link to="/" className="text-2xl font-bold">
-        PeriShop
+    <nav className="p-6 bg-black text-white flex justify-between items-center">
+      {/* IZQUIERDA */}
+      <Link to="/" className="font-bold text-xl">
+        Perishop
       </Link>
 
-      {/* Links */}
-      <ul className="flex gap-6 text-lg">
-        <li>
-          <Link to="/" className="hover:text-gray-400">Inicio</Link>
-        </li>
-        <li>
-          <Link to="/category/teclados" className="hover:text-gray-400">Teclados</Link>
-        </li>
-        <li>
-          <Link to="/category/mouse" className="hover:text-gray-400">Mouse</Link>
-        </li>
-        <li>
-          <Link to="/category/auriculares" className="hover:text-gray-400">Auriculares</Link>
-        </li>
-      </ul>
-
-      <CartWidget />
+      {/* DERECHA */}
+      <div className="flex items-center gap-6">
+        <Link to="/category/teclado">Teclados</Link>
+        <Link to="/category/mouse">Mouse</Link>
+        <Link to="/category/auriculares">Auriculares</Link>
+        <CartWidget />
+      </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

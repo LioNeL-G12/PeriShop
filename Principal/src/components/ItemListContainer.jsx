@@ -1,57 +1,35 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import products from "../data/products.json";
+import { useEffect, useState } from "react"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { useParams } from "react-router-dom"
+import { db } from "../Firebase/config"
+import ItemList from "./ItemList"
 
 const ItemListContainer = ({ greeting }) => {
-  const [items, setItems] = useState([]);
-  const { categoryId } = useParams();
+  const [products, setProducts] = useState([])
+  const { categoryId } = useParams()
 
   useEffect(() => {
-    const getProducts = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 1000);
-    });
+    const productsRef = collection(db, "products")
 
-    getProducts.then((data) => {
-      if (categoryId) {
-        setItems(data.filter((item) => item.category === categoryId));
-      } else {
-        setItems(data);
-      }
-    });
-  }, [categoryId]);
+    const q = categoryId
+      ? query(productsRef, where("category", "==", categoryId))
+      : productsRef
+
+    getDocs(q).then(snapshot => {
+      const items = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setProducts(items)
+    })
+  }, [categoryId])
 
   return (
     <div className="p-6">
-      {greeting && <h2 className="text-3xl mb-6">{greeting}</h2>}
-
-      <div className="flex flex-wrap justify-center gap-6">
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className="w-64 border p-4 rounded-xl shadow flex flex-col items-center text-center"
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="mb-3 w-full h-40 object-cover rounded-lg"
-            />
-
-            <h3 className="text-xl font-semibold">{item.name}</h3>
-            <p className="text-gray-600 mb-2">${item.price}</p>
-
-            <Link
-              to={`/item/${item.id}`}
-              className="mt-auto bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-700"
-            >
-              Ver detalle
-            </Link>
-          </div>
-        ))}
-      </div>
+      {greeting && <h2 className="text-2xl mb-4">{greeting}</h2>}
+      <ItemList products={products} />
     </div>
-  );
-};
+  )
+}
 
-export default ItemListContainer;
+export default ItemListContainer

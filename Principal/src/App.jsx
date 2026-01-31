@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/navbar";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import { Routes, Route } from "react-router-dom"
+import NavBar from "./components/NavBar"
+import ItemListContainer from "./components/ItemListContainer"
+import ItemDetailContainer from "./components/ItemDetailContainer"
+import Cart from "./components/Cart"
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route
           path="/"
           element={
-            <ItemListContainer greeting="¡Bienvenido a PeriShop! Elegí tus periféricos favoritos." />
+            <ItemListContainer greeting="¡Bienvenido a PeriShop!" />
           }
         />
 
@@ -26,10 +27,11 @@ function App() {
           element={<ItemDetailContainer />}
         />
 
-        <Route path="*" element={<h2 className="p-6 text-2xl">404 - Página no encontrada</h2>} />
+        {/* RUTA DEL CARRITO */}
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

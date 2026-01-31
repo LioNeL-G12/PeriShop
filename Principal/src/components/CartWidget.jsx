@@ -1,14 +1,20 @@
-import { ShoppingCart } from "lucide-react";
+import { useContext } from "react"
+import { CartContext } from "../context/CartContext"
+import { Link } from "react-router-dom"
 
 const CartWidget = () => {
-  return (
-    <div className="relative cursor-pointer">
-    <ShoppingCart size={28} />
-    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 rounded-full">
-        3
-    </span>
-    </div>
-  );
-};
+  const { totalQuantity } = useContext(CartContext)
 
-export default CartWidget;
+  return (
+    <Link to="/cart" className="relative">
+      🛒
+      {totalQuantity > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 rounded-full">
+          {totalQuantity}
+        </span>
+      )}
+    </Link>
+  )
+}
+
+export default CartWidget
